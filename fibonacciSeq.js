@@ -4,11 +4,11 @@
 // # iterative code in the instructions."""
 
 const get_fib = (position) =>{
-    if (position == 0){
-        return 0
+    if (position == 0 || position==1){
+        return position
     }
     else{
-        return position + get_fib(position-1)
+        return get_fib(position-1) + get_fib(position-2)
     }
         
 }

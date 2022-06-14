@@ -10,11 +10,11 @@ const binary_search_iter= (inputArray, value) => {
         if (value > inputArray[indexToGo]) {
             startArray = indexToGo
             indexToGo = Math.round((startArray + endArray) / 2)
-            console.log('New start: ', startArray, ' new end: ', endArray, ' new array', inputArray.slice(startArray, endArray), 'Index now is:', indexToGo)
+            // console.log('New start: ', startArray, ' new end: ', endArray, ' new array', inputArray.slice(startArray, endArray), 'Index now is:', indexToGo)
         } else if (value < inputArray[indexToGo]) {
             endArray = indexToGo
             indexToGo = Math.round((startArray + endArray) / 2)
-            console.log('New start: ', startArray, ' new end: ', endArray,  ' new array', inputArray.slice(startArray, endArray), 'Index now is:', indexToGo)
+            // console.log('New start: ', startArray, ' new end: ', endArray,  ' new array', inputArray.slice(startArray, endArray), 'Index now is:', indexToGo)
         }
     }
     if (inputArray[indexToGo] == value) {
@@ -29,13 +29,11 @@ const binary_search_recu = (inputArray, value)=>{
     //arrayEnd
     console.log('The array we are working with is:', inputArray)
     console.log('We are looking for the value: ', value )
-        let startArray = 0;
-        let endArray = inputArray.length
+
 
     const binarySearch =(inputArray, startArray, endArray)=>{
 
         let currentIndex = Math.round((startArray + endArray) / 2)
-        console.log('Cirrent value', inputArray[currentIndex])
 
         if (inputArray[currentIndex] == value){
             console.log('yaay, found it!')
@@ -50,7 +48,7 @@ const binary_search_recu = (inputArray, value)=>{
                 startArray = currentIndex
             }
             currentIndex = Math.round((startArray + endArray) / 2)
-            console.log('New start: ', startArray, ' new end: ', endArray, ' new array', inputArray.slice(startArray, endArray), 'Index now is:', currentIndex)
+            // console.log('New start: ', startArray, ' new end: ', endArray, ' new array', inputArray.slice(startArray, endArray), 'Index now is:', currentIndex)
             return binarySearch(inputArray, startArray ,endArray)
         }
 
@@ -65,15 +63,15 @@ const testVal1 = 29
 const testVal2 = 19
 const testVal3 = 3
 const testVal4 = 0
-// console.log(binary_search_iter(testList, testVal1))
-// console.log('___')
-// console.log(binary_search_iter(testList, testVal2))
-// console.log('___')
-// console.log(binary_search_iter(testList, testVal3))
-// console.log('___')
-// console.log(binary_search_iter(testList, testVal4))
+console.log(binary_search_iter(testList, testVal1))
+console.log('___')
+console.log(binary_search_iter(testList, testVal2))
+console.log('___')
+console.log(binary_search_iter(testList, testVal3))
+console.log('___')
+console.log(binary_search_iter(testList, testVal4))
 
-// console.log(binary_search_recu(testList,testVal1))
-// console.log(binary_search_recu(testList,testVal2))
-// console.log(binary_search_recu(testList,testVal3))
+console.log(binary_search_recu(testList,testVal1))
+console.log(binary_search_recu(testList,testVal2))
+console.log(binary_search_recu(testList,testVal3))
 console.log(binary_search_recu(testList,testVal4))

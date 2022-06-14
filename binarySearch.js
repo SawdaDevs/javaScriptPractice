@@ -6,6 +6,8 @@ const binary_search_iter= (inputArray, value) => {
     console.log('The array we are working with is:', inputArray)
     console.log('We are looking for the value: ', value )
     //should check for array being ordered...how?
+
+
     while (inputArray.slice(startArray, endArray).length > 1 && inputArray[indexToGo] != value) {
         if (value > inputArray[indexToGo]) {
             startArray = indexToGo
@@ -24,13 +26,8 @@ const binary_search_iter= (inputArray, value) => {
 }
 
 const binary_search_recu = (inputArray, value)=>{
-    //indexToSearch
-    //arrayStart
-    //arrayEnd
     console.log('The array we are working with is:', inputArray)
     console.log('We are looking for the value: ', value )
-
-
     const binarySearch =(inputArray, startArray, endArray)=>{
 
         let currentIndex = Math.round((startArray + endArray) / 2)
@@ -63,15 +60,21 @@ const testVal1 = 29
 const testVal2 = 19
 const testVal3 = 3
 const testVal4 = 0
+console.log('1.')
 console.log(binary_search_iter(testList, testVal1))
-console.log('___')
+console.log('2.')
 console.log(binary_search_iter(testList, testVal2))
-console.log('___')
+console.log('3.')
 console.log(binary_search_iter(testList, testVal3))
-console.log('___')
+console.log('4.')
 console.log(binary_search_iter(testList, testVal4))
 
+console.log('Now working through this with in place recursion:')
+console.log('1.')
 console.log(binary_search_recu(testList,testVal1))
+console.log('2.')
 console.log(binary_search_recu(testList,testVal2))
+console.log('3.')
 console.log(binary_search_recu(testList,testVal3))
+console.log('4.')
 console.log(binary_search_recu(testList,testVal4))

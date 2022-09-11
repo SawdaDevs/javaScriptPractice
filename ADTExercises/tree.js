@@ -15,13 +15,34 @@ class BinaryTree{
         let newNode = new Node(value)
         if(this.root === null){
             this.root = newNode
+        }else{
+            let currentNode = this.root
+            this.insertNode(currentNode, newNode)
+            }
         }
-        else{
-            //insert Node to right place in the tree
+    insertRec(currentNode, newNode){
+        if(newNode.value > currentNode.value){
+            //insert when null
+            if(currentNode.right == null){
+                currentNode.right == newNode
+            }
+            //if not null go right + check again
+            currentNode = currentNode.right
+            this.insertRec(currentNode, newNode)
+            //check again
         }
-        
-
+        if(newNode.value < currentNode.value){
+            //insert to left of tree
+            if(currentNode.left == null){
+                currentNode.left == newNode
+            }else{
+                currentNode = currentNode.left 
+                //check again
+                this.insertRec(currentNode, newNode)
+            }
+        }
     }
+    //what to do with same value?
     remove(value){
         //first search
         //remove if found 

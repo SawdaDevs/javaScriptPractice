@@ -86,6 +86,14 @@ class BinaryTree{
                 //return modified tree
             }else{
                 //node has two children
+                let findMinRight = this.getMin(currentNode.right)
+                currentNode.value =findMinRight.value
+                //replace with minimum value in right subtree and then rermove that value from tree
+                currentNode.right = this.removeRec(currentNode.right, findMinRight.value)
+                // with the right subtree, find that value we just replaced and remove it from subtree. 
+                //that node will be a leaf node
+                return currentNode
+                //return this subtree we created from node
             }
         }
     }
@@ -116,4 +124,21 @@ class BinaryTree{
     isLeaf(currentNode){
         return currentNode.left === null && currentNode.right === null
     }
+    getMin(currentNode){
+        if(currentNode.left ===null){
+            return currentNode
+        }else{
+            return this.getMin(currentNode.left)
+        }
+    }
+    getMax(currentNode){
+        if(currentNode.right===null){
+            return currentNode
+        }else{
+            return this.getMax(currentNode.right)
+        }
+
+    }
 }
+
+//could this be done with while loop?

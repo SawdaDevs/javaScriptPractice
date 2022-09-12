@@ -139,6 +139,9 @@ class BinaryTree{
         }
 
     }
+    getRoot(){
+        return this.root
+    }
 }
 
 //could this be done with while loop?

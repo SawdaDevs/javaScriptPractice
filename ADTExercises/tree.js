@@ -1,19 +1,18 @@
 class Node{
     constructor(value){
+        //new node with null as left and right pointers
         this.value = value
         this.right = null 
         this.left = null
-        //new node with null as left and right pointers
 
         //could introduce counter, default being zero or null
     }
 }
 class BinaryTree{
-    constructor(root){
+    constructor(){
         this.root = null
     }
     insert(value){
-
     //what to do with same value?
 
         //first create the node to be inserted
@@ -22,7 +21,7 @@ class BinaryTree{
             this.root = newNode
         }else{
             let currentNode = this.root
-            this.insertNode(currentNode, newNode)
+            this.insertRec(currentNode, newNode)
             }
         }
     insertRec(currentNode, newNode){
@@ -50,12 +49,39 @@ class BinaryTree{
     remove(value){
         //first search
         //remove if found 
+
+        // need a currentNode
+
+        this.root = this.removeRec(this.root, value);
+        //need to reinitialise the tree with the root of the new tree once value is removed. Will continue to return at each step to return modified tree. 
     }
-    removeLeafNode(){
+    removeRec(currentNode,value){
+        if(currentNode === null||currentNode.value ===null){
+            return null
+            //if there is no value return null, no removal
+        }else if (currentNode.value<value){
+            //move right
+            currentNode.right = this.removeRec(currentNode.right, value)
+            return currentNode
+        }else if (currentNode.value>value){
+            //move left
+            currentNode.left = this.removeRec(currentNode.left, value)
+            return currentNode
+        }else {
+            //value is the same as node, time to remove
+            if(this.isLeaf(currentNode)){
+                //can remove as is leaf
+                this.removeLeafNode(currentNode)
+            }
+        }
+    }
+    removeLeafNode(currentNode){
+        currentNode = null
+        return currentNode
 
     }
     removeOneChild(){
-        
+
     }
     removeTwoChild(){
 
@@ -67,7 +93,7 @@ class BinaryTree{
 
         if (currentNode === null){
             //binary tree is empty
-            return null || `${value} not found`
+            return false
         }else if (currentNode.value>value){
             //go left
             currentNode = currentNode.left
@@ -79,8 +105,11 @@ class BinaryTree{
         }
         else{
             //same value
-            return 'Found value'
+            return true
         }
 
+    }
+    isLeaf(currentNode){
+        return currentNode.left === null && currentNode.right === null
     }
 }

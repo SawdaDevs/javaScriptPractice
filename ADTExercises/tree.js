@@ -71,21 +71,25 @@ class BinaryTree{
             //value is the same as node, time to remove
             if(this.isLeaf(currentNode)){
                 //can remove as is leaf
-                this.removeLeafNode(currentNode)
+                currentNode = null
+                    //make current node null, hence removing  
+                return currentNode
+                    //return modified tree
+        
+            }else if(currentNode.right === null){
+                currentNode = currentNode.left
+                return currentNode
+                //return modified tree
+            }else if(currentNode.left === null){
+                currentNode = currentNode.right
+                return currentNode
+                //return modified tree
+            }else{
+                //node has two children
             }
         }
     }
-    removeLeafNode(currentNode){
-        currentNode = null
-        return currentNode
 
-    }
-    removeOneChild(){
-
-    }
-    removeTwoChild(){
-
-    }
     search(currentNode, value){
         //how do I handle value not found? keep going until I find null where the value should be, if I hit null then return null or not found
         

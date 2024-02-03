@@ -2,7 +2,7 @@
 
 const contains = (obj, value) => {
     for(key in obj){
-        if(typeof obj[key] === 'object'){
+        if(typeof obj[key] === ''){
             return contains(obj[key], value);
         }
         if(obj[key] === value){

@@ -8,6 +8,7 @@ class Node {
     //could introduce counter, default being zero or null
   }
 }
+
 class BinaryTree {
   constructor() {
     this.root = null;
